@@ -15,9 +15,9 @@
 
 #include "Character/PBPlayerMovement.h"
 
-static TAutoConsoleVariable<int32> CVarAutoBHop(TEXT("move.Pogo"), 1, TEXT("If holding spacebar should make the player jump whenever possible.\n"), ECVF_Default);
+static TAutoConsoleVariable<int32> CVarAutoBHop(TEXT("move.Pogo"), 0, TEXT("If holding spacebar should make the player jump whenever possible.\n"), ECVF_Default);
 
-static TAutoConsoleVariable<int32> CVarJumpBoost(TEXT("move.JumpBoost"), 1, TEXT("If the player should boost in a movement direction while jumping.\n0 - disables jump boosting entirely\n1 - boosts in the direction of input, even when moving in another direction\n2 - boosts in the direction of input when moving in the same direction\n"), ECVF_Default);
+static TAutoConsoleVariable<int32> CVarJumpBoost(TEXT("move.JumpBoost"), 0, TEXT("If the player should boost in a movement direction while jumping.\n0 - disables jump boosting entirely\n1 - boosts in the direction of input, even when moving in another direction\n2 - boosts in the direction of input when moving in the same direction\n"), ECVF_Default);
 
 static TAutoConsoleVariable<int32> CVarBunnyhop(TEXT("move.Bunnyhopping"), 0, TEXT("Enable normal bunnyhopping.\n"), ECVF_Default);
 
