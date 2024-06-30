@@ -16,7 +16,8 @@ public class TheRenegades : ModuleRules
 			"EnhancedInput",
 			"GameplayTags",
 			"UMG",
-			"NetworkPrediction"
+			"NetworkPrediction",
+			"PBCharacterMovement"
 		});
 	}
 }

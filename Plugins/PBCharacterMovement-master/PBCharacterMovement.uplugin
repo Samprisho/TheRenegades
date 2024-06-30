@@ -14,5 +14,17 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
+	],
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Plugins": [
+		{
+			"Name": "NetworkPrediction",
+			"Enabled": true
+		}
 	]
 }

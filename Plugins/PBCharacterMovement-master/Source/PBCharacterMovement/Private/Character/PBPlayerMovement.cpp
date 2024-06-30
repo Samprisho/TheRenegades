@@ -21,11 +21,10 @@ static TAutoConsoleVariable<int32> CVarShowPos(TEXT("cl.ShowPos"), 0, TEXT("Show
 DECLARE_CYCLE_STAT(TEXT("Char StepUp"), STAT_CharStepUp, STATGROUP_Character);
 DECLARE_CYCLE_STAT(TEXT("Char PhysFalling"), STAT_CharPhysFalling, STATGROUP_Character);
 
-// MAGIC NUMBERS
 constexpr float JumpVelocity = 266.7f;
 const float MAX_STEP_SIDE_Z = 0.08f;			 // maximum z value for the normal on the vertical side of steps
 const float VERTICAL_SLOPE_NORMAL_Z = 0.001f;	 // Slope is vertical if Abs(Normal.Z) <= this threshold. Accounts for precision problems that sometimes angle
-												 // normals slightly off horizontal for vertical surface.
+// normals slightly off horizontal for vertical surface.
 
 constexpr float DesiredGravity = -1143.0f;
 

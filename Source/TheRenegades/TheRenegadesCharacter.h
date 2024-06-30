@@ -3,8 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "GameFramework/Pawn.h"
 #include "Logging/LogMacros.h"
+#include "Animation/AnimInstance.h"
+#include "Character Movement/RenegadesMovementComponent.h"
+#include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputActionValue.h"
+#include "Engine/LocalPlayer.h"
 #include "TheRenegadesCharacter.generated.h"
 
 class UInputComponent;
@@ -17,9 +26,12 @@ struct FInputActionValue;
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 UCLASS(config=Game)
-class ATheRenegadesCharacter : public ACharacter
+class ATheRenegadesCharacter : public APawn
 {
 	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	UCapsuleComponent* CapsuleComponent;
 
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Mesh, meta = (AllowPrivateAccess = "true"))
@@ -38,10 +50,13 @@ class ATheRenegadesCharacter : public ACharacter
 	UInputAction* MoveAction;
 	
 public:
-	ATheRenegadesCharacter();
+	ATheRenegadesCharacter(const FObjectInitializer& ObjectInitializer);
 
 protected:
 	virtual void BeginPlay();
+
+	UFUNCTION(BlueprintCallable)
+	UCapsuleComponent* GetCapsuleComponent() { return CapsuleComponent; };
 
 public:
 		
