@@ -6,6 +6,7 @@
 #include "Character/PBPlayerCharacter.h"
 #include "PBBaseCharacter.generated.h"
 
+class UCustomPBPlayerMovement;
 /**
  * 
  */
@@ -14,4 +15,9 @@ class THERENEGADES_API APBBaseCharacter : public APBPlayerCharacter
 {
 	GENERATED_BODY()
 	
+public:
+	APBBaseCharacter(const FObjectInitializer& ObjectInitializer);
+
+	UFUNCTION(BlueprintCallable)
+	UCustomPBPlayerMovement* GetCustomCharacterMovement() const;
 };

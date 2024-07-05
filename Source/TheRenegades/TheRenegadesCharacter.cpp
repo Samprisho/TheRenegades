@@ -32,12 +32,14 @@ ATheRenegadesCharacter::ATheRenegadesCharacter(const FObjectInitializer& ObjectI
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
 
+
 }
 
 void ATheRenegadesCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
+
 }
 
 //////////////////////////////////////////////////////////////////////////// Input
@@ -65,7 +67,6 @@ void ATheRenegadesCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
 }
-
 
 void ATheRenegadesCharacter::Move(const FInputActionValue& Value)
 {
