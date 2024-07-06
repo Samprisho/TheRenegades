@@ -14,8 +14,7 @@ public class PBCharacterMovement : ModuleRules
 				"Core",
 				"CoreUObject",
 				"Engine",
-				"PhysicsCore",
-				"NetworkPrediction"
+				"PhysicsCore"
 			}
 		);
 	}

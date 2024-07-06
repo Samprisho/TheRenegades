@@ -20,11 +20,5 @@
 	"SupportURL": "",
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
-	"Installed": false,
-	"Plugins": [
-		{
-			"Name": "NetworkPrediction",
-			"Enabled": true
-		}
-	]
+	"Installed": false
 }

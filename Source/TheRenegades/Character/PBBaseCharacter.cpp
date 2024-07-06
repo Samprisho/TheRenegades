@@ -2,10 +2,10 @@
 
 
 #include "PBBaseCharacter.h"
-#include "../Character Movement/CustomPBPlayerMovement.h"
+
 
 APBBaseCharacter::APBBaseCharacter(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCustomPBPlayerMovement>(ACharacter::CharacterMovementComponentName))
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCustomPBPlayerMovement>(APBPlayerCharacter::CharacterMovementComponentName))
 {
 
 }
@@ -13,4 +13,17 @@ APBBaseCharacter::APBBaseCharacter(const FObjectInitializer& ObjectInitializer)
 UCustomPBPlayerMovement* APBBaseCharacter::GetCustomCharacterMovement() const
 {
 	return GetCharacterMovement<UCustomPBPlayerMovement>();
+}
+
+FCollisionQueryParams APBBaseCharacter::GetIgnoreCharacterParams() const
+{
+
+	FCollisionQueryParams Params;
+
+	TArray<AActor*> CharacterChildren;
+	GetAllChildActors(CharacterChildren);
+	Params.AddIgnoredActors(CharacterChildren);
+	Params.AddIgnoredActor(this);
+
+	return Params;
 }

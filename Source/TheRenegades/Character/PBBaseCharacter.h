@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Character/PBPlayerCharacter.h"
+#include "../Character Movement/CustomPBPlayerMovement.h"
 #include "PBBaseCharacter.generated.h"
 
 class UCustomPBPlayerMovement;
 /**
  * 
  */
-UCLASS()
+UCLASS(Config = Game)
 class THERENEGADES_API APBBaseCharacter : public APBPlayerCharacter
 {
 	GENERATED_BODY()
@@ -20,4 +21,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	UCustomPBPlayerMovement* GetCustomCharacterMovement() const;
+
+	FCollisionQueryParams GetIgnoreCharacterParams() const;
 };
