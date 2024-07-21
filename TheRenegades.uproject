@@ -11,7 +11,9 @@
 			"AdditionalDependencies": [
 				"CommonUI",
 				"NetworkPredictionExtras",
-				"PBCharacterMovement"
+				"PBCharacterMovement",
+				"Engine",
+				"GameplayAbilities"
 			]
 		}
 	],
@@ -64,6 +66,10 @@
 		},
 		{
 			"Name": "BlueprintFileUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
 			"Enabled": true
 		}
 	]

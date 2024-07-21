@@ -55,6 +55,9 @@ float UCustomPBPlayerMovement::GetMaxSpeed() const
 		}
 	}
 
+	if (IsInCrouch())
+		return MaxWalkSpeedCrouched;
+
 	return bIsSprinting ? CustomMaxSpeed : Super::GetMaxSpeed();
 }
 
