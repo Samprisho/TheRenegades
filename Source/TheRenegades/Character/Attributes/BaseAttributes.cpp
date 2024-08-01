@@ -8,14 +8,6 @@
 
 UBaseAttributes::UBaseAttributes()
 {
-	InitMaxHealth(200.f);
-	InitHealth(GetMaxHealth());
-	InitAttack(50);
-	InitDefense(50);
-	InitSpeed(50);
-	InitAgility(50);
-	InitFocus(50);
-	InitGuts(50);
 }
 
 void UBaseAttributes::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

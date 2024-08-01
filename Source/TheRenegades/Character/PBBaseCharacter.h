@@ -40,7 +40,6 @@ protected:
 	virtual void OnRep_PlayerState() override;
 
 public:
-
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
 	{
 		auto PS = GetPlayerState<ABasePlayerState>();

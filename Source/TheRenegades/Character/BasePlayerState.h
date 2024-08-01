@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemComponent.h"
 #include "GameFramework/PlayerState.h"
+#include "AbilitySystemInterface.h"
 #include "Attributes/BaseAttributes.h"
 #include "BasePlayerState.generated.h"
 
@@ -15,7 +16,7 @@ class UAbilitySystemComponent;
  * 
  */
 UCLASS()
-class THERENEGADES_API ABasePlayerState : public APlayerState
+class THERENEGADES_API ABasePlayerState : public APlayerState, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -23,13 +24,15 @@ public:
 
 	ABasePlayerState();
 
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UAbilitySystemComponent* AbilitySystemComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UBaseAttributes* BaseAttributes;
+	const UBaseAttributes* BaseAttributes;
 
 public:
 
