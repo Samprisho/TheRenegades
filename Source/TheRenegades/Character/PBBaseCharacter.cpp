@@ -46,6 +46,7 @@ void APBBaseCharacter::BeginPlay()
 
 }
 
+// Server only
 void APBBaseCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
@@ -55,9 +56,22 @@ void APBBaseCharacter::PossessedBy(AController* NewController)
 	{
 		AbilitySystemComponent = Cast<UAbilitySystemComponent>(PS->AbilitySystemComponent);
 		PS->AbilitySystemComponent->InitAbilityActorInfo(PS, this);
+
+		if (!HasAuthority() || !IsValid(AbilitySystemComponent))
+			return;
+
+		for (auto StartupAbility : Abilities) {
+			UE_LOG(LogTemp, Display, TEXT("Attempting to grant ability"))
+			AbilitySystemComponent->GiveAbility(
+				FGameplayAbilitySpec(StartupAbility, 1, -1, this));
+		}
+		
+		UE_LOG(LogTemp, Display, TEXT("Granted All Abilities!!!!!!!!!"))
 	}
+
 }
 
+// Client Only
 void APBBaseCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
@@ -70,6 +84,8 @@ void APBBaseCharacter::OnRep_PlayerState()
 		// Init ASC Actor Info for clients. Server will init its ASC when it possesses a new Actor.
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
 	}
+
+	PlayerStateRep();
 }
 
 float APBBaseCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
